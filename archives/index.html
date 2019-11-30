@@ -39,8 +39,8 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     sidebarPadding: 40
   };
@@ -118,7 +118,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">you find me,I dont konw you!</p>
+        <p class="site-subtitle">you find me,But I dont konw you!</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -149,9 +149,34 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -198,8 +223,8 @@
       </div>
 
       <h2 class="post-title">
-          <a class="post-title-link" href="/2019/11/29/%E7%AC%AC%E4%B8%80%E7%AF%87%E7%94%B1Hexo%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%A8%AA%E7%A9%BA%E5%87%BA%E4%B8%96/" itemprop="url">
-            <span itemprop="name">第一篇由Hexo的博客横空出世</span>
+          <a class="post-title-link" href="/2019/11/29/1/" itemprop="url">
+            <span itemprop="name">这个博客的搭建过程</span>
           </a>
       </h2>
 
@@ -337,6 +362,8 @@
 
 
 
+
+  <script src="/js/local-search.js"></script>
 
 
 
