@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>orange&#39;s 一个操作系统的实现中关于FreeDOS添加文本文件的问题</title>
+    <url>/2019/12/02/2/</url>
+    <content><![CDATA[<h3 id="Hello-Question"><a href="#Hello-Question" class="headerlink" title="Hello Question"></a>Hello Question</h3><ol>
+<li><p>最近做操作系统课程实验发现教材上竟没有提供FreeDos如何编辑文件的问题。从网上找到的一般都是使用Edit命令，不过都是下图:</p>
+<p> <img src="/images/edit_error.png" alt="edit_error"></p>
+<a id="more"></a>
+
+</li>
+</ol>
+<h3 id="Hello-Answer"><a href="#Hello-Answer" class="headerlink" title="Hello Answer"></a>Hello Answer</h3><ol>
+<li><p>FreeDos-Img的压缩包提供了三个.img文件,我们之前用的a.img,其中并没有Edit命令，我们要到c.img。<a href="/files/c.img">c.img在这里</a>。</p>
+</li>
+<li><p>将bochsrc改写启动盘为c.img。将其中的硬盘一段改写为(pm.img是自己创建好的要写入数据的虚拟软盘)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># what disk images will be used</span></pre></td></tr><tr><td class="code"><pre><span class="line">floppyb: 1_44&#x3D;pm.img, status&#x3D;inserted</span></pre></td></tr><tr><td class="code"><pre><span class="line">ata0-master: type&#x3D;disk, path&#x3D;c.img, cylinders&#x3D;306, heads&#x3D;4, spt&#x3D;17</span></pre></td></tr><tr><td class="code"><pre><span class="line"># choose the boot disk.</span></pre></td></tr><tr><td class="code"><pre><span class="line">boot: c</span></pre></td></tr></table></figure>
+</li>
+<li><p>启动之后就可以进入到C盘，我们进入B盘，然后输入edit可以进入到Edit界面，然后按alt+F可以进入文件界面，然后选择dos。</p>
+<p> <img src="/images/dos.png" alt="dos">    </p>
+</li>
+<li><p>进入之后就可以执行dos上的命令。我们先格式化B盘，然后写入一些数据。</p>
+<p> <img src="/images/echo.png" alt="echo"></p>
+</li>
+<li><p>输入exit可以回到freedos。我们看看写入的东西。<br> (1)根目录<br> <img src="/images/root.png" alt="root"></p>
+<p> (2)FAT表<br> <img src="/images/fat.png" alt="fat"></p>
+<p> (3)数据区</p>
+<p> <img src="/images/data.png" alt="data"></p>
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>这个博客的搭建过程</title>
     <url>/2019/11/29/1/</url>
     <content><![CDATA[<h3 id="Hello，Github-Page！"><a href="#Hello，Github-Page！" class="headerlink" title="Hello，Github Page！"></a>Hello，Github Page！</h3><ol>
@@ -17,25 +47,19 @@
 </li>
 <li><p>我选择的是Ubuntu 18.04平台搭建的博客。Hexo需要下面两个工具:</p>
 <p>Git 和 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Git 在 Ubuntu 上 apt 安装就可以</span></pre></td></tr><tr><td class="code"><pre><span class="line">Node.js 有多种安装方式，因为种种原因出错，结果我是用源码编译安装的</span></pre></td></tr><tr><td class="code"><pre><span class="line">安装完之后在终端里输入 git 和 npm 提示存在命令就可以了。</span></pre></td></tr></table></figure>
-</li>
-<li><p>使用npm命令安装Hexo</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span></pre></td></tr></table></figure>
-</li>
-<li><p>将hexo命令加入到环境变量中，之后输入hexo应该提示命令存在了</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &#39;PATH&#x3D;&quot;$PATH:.&#x2F;node_modules&#x2F;.bin&quot;&#39; &gt;&gt; ~&#x2F;.profile</span></pre></td></tr></table></figure></li>
-<li><p>初始化hexo，之后的操作都是在<strong>创建的文件夹</strong>下面工作的了</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span></pre></td></tr><tr><td class="code"><pre><span class="line">cd &lt;folder&gt;</span></pre></td></tr><tr><td class="code"><pre><span class="line">npm install</span></pre></td></tr></table></figure>
-</li>
-<li><p>新建一个文章</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new post &quot;文章名&quot;</span></pre></td></tr></table></figure>
-<p>之后便可以在source/_post文件夹下看到你创建的xxx.md文件了。在里面进行Markdown语法的编写。</p>
-</li>
-<li><p>_config.yml是配置文件，在里面可以配置很多重要的信息，这是很麻烦的一部分。我这里仅介绍我修改的一部分。</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">   # Site  设置网站的基本信息的地方</span></pre></td></tr><tr><td class="code"><pre><span class="line">   title: jin的博客</span></pre></td></tr><tr><td class="code"><pre><span class="line">   subtitle: &#39;you find me,But I dont konw you!&#39;</span></pre></td></tr><tr><td class="code"><pre><span class="line">   description: &#39;这次我们可以一起学习&#39;</span></pre></td></tr><tr><td class="code"><pre><span class="line">   keywords:</span></pre></td></tr><tr><td class="code"><pre><span class="line">   author: 刘进</span></pre></td></tr><tr><td class="code"><pre><span class="line">   language: zh-CN</span></pre></td></tr><tr><td class="code"><pre><span class="line">   timezone: &#39;&#39;</span></pre></td></tr><tr><td class="code"><pre><span class="line">   ...</span></pre></td></tr><tr><td class="code"><pre><span class="line">   ## Themes: https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;这是配置主题的地方，可以在官网找到很多的主题。我用的是比较经典的next主题。</span></pre></td></tr><tr><td class="code"><pre><span class="line">theme: next</span></pre></td></tr><tr><td class="code"><pre><span class="line">   ...</span></pre></td></tr><tr><td class="code"><pre><span class="line">   # 这是配置远程Github库的地方。我们用Hexo生成的静态界面是要推送的Github上的。</span></pre></td></tr><tr><td class="code"><pre><span class="line">   deploy:</span></pre></td></tr><tr><td class="code"><pre><span class="line">   type: git</span></pre></td></tr><tr><td class="code"><pre><span class="line">   repository: git@github.com:jinexplorer&#x2F;jinexplorer.github.io.git</span></pre></td></tr><tr><td class="code"><pre><span class="line">   branch: master</span></pre></td></tr></table></figure></li>
-<li><p>之后我们便可以写的文章推送到Github上，就可以在网址中看到，我们写的文章。</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#生成静态界面</span></pre></td></tr><tr><td class="code"><pre><span class="line">hexo g</span></pre></td></tr><tr><td class="code"><pre><span class="line">#推送到Github</span></pre></td></tr><tr><td class="code"><pre><span class="line">hexo d</span></pre></td></tr><tr><td class="code"><pre><span class="line">#另外还可以使用下列命令在本地创建服务器查看</span></pre></td></tr><tr><td class="code"><pre><span class="line">hexo s</span></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">   Git 在 Ubuntu 上 apt 安装就可以</span></pre></td></tr><tr><td class="code"><pre><span class="line">   Node.js 有多种安装方式，因为种种原因出错，结果我是用源码编译安装的</span></pre></td></tr><tr><td class="code"><pre><span class="line">   安装完之后在终端里输入 git 和 npm 提示存在命令就可以了。</span></pre></td></tr><tr><td class="code"><pre><span class="line">   &#96;&#96;&#96;   </span></pre></td></tr><tr><td class="code"><pre><span class="line">3. 使用npm命令安装Hexo</span></pre></td></tr><tr><td class="code"><pre><span class="line">  &#96;&#96;&#96; </span></pre></td></tr><tr><td class="code"><pre><span class="line">  npm install -g hexo-cli</span></pre></td></tr><tr><td class="code"><pre><span class="line">  &#96;&#96;&#96; </span></pre></td></tr><tr><td class="code"><pre><span class="line">4. 将hexo命令加入到环境变量中，之后输入hexo应该提示命令存在了</span></pre></td></tr></table></figure>
+<p>echo ‘PATH=”$PATH:./node_modules/.bin”‘ &gt;&gt; ~/.profile</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">4. 初始化hexo，之后的操作都是在**创建的文件夹**下面工作的了</span></pre></td></tr></table></figure>
+<p>hexo init <folder><br>cd <folder><br>npm install</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> </span></pre></td></tr><tr><td class="code"><pre><span class="line">6. 新建一个文章</span></pre></td></tr></table></figure>
+<p>hexo new post “文章名”</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 之后便可以在source&#x2F;_post文件夹下看到你创建的xxx.md文件了。在里面进行Markdown语法的编写。</span></pre></td></tr><tr><td class="code"><pre><span class="line"> </span></pre></td></tr><tr><td class="code"><pre><span class="line">7. _config.yml是配置文件，在里面可以配置很多重要的信息，这是很麻烦的一部分。我这里仅介绍我修改的一部分。</span></pre></td></tr></table></figure>
+<h1 id="Site-设置网站的基本信息的地方"><a href="#Site-设置网站的基本信息的地方" class="headerlink" title="Site  设置网站的基本信息的地方"></a>Site  设置网站的基本信息的地方</h1><p>title: jin的博客<br>subtitle: ‘you find me,But I dont konw you!’<br>description: ‘这次我们可以一起学习’<br>keywords:<br>author: 刘进<br>language: zh-CN<br>timezone: ‘’<br>…</p>
+<h2 id="Themes-https-hexo-io-themes-这是配置主题的地方，可以在官网找到很多的主题。我用的是比较经典的next主题。"><a href="#Themes-https-hexo-io-themes-这是配置主题的地方，可以在官网找到很多的主题。我用的是比较经典的next主题。" class="headerlink" title="Themes: https://hexo.io/themes/这是配置主题的地方，可以在官网找到很多的主题。我用的是比较经典的next主题。"></a>Themes: <a href="https://hexo.io/themes/这是配置主题的地方，可以在官网找到很多的主题。我用的是比较经典的next主题。" target="_blank" rel="noopener">https://hexo.io/themes/这是配置主题的地方，可以在官网找到很多的主题。我用的是比较经典的next主题。</a></h2><p>theme: next<br>…</p>
+<h1 id="这是配置远程Github库的地方。我们用Hexo生成的静态界面是要推送的Github上的。"><a href="#这是配置远程Github库的地方。我们用Hexo生成的静态界面是要推送的Github上的。" class="headerlink" title="这是配置远程Github库的地方。我们用Hexo生成的静态界面是要推送的Github上的。"></a>这是配置远程Github库的地方。我们用Hexo生成的静态界面是要推送的Github上的。</h1><p>deploy:<br>type: git<br>repository: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:jinexplorer/jinexplorer.github.io.git<br>branch: master</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> </span></pre></td></tr><tr><td class="code"><pre><span class="line">8. 之后我们便可以写的文章推送到Github上，就可以在网址中看到，我们写的文章。</span></pre></td></tr></table></figure>
+<p>#生成静态界面<br>hexo g<br>#推送到Github<br>hexo d<br>#另外还可以使用下列命令在本地创建服务器查看<br>hexo s</p>
+<pre><code></code></pre></li>
 </ol>
 ]]></content>
   </entry>
