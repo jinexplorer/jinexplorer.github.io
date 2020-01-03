@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>orange&#39;s操作系统中5/6中报错处理</title>
+    <url>/2020/01/03/3/</url>
+    <content><![CDATA[<h3 id="Hello-Question"><a href="#Hello-Question" class="headerlink" title="Hello Question"></a>Hello Question</h3><ol>
+<li><p>如下图，但是报错不局限于下图:</p>
+<p> <img src="/images/3_error.png" alt="报错"> </p>
+<a id="more"></a>
+
+</li>
+</ol>
+<h3 id="Hello-Answer"><a href="#Hello-Answer" class="headerlink" title="Hello Answer"></a>Hello Answer</h3><ol>
+<li><p>修改/lib/klaba.asm中的disp_str。如下图，添加一点点即可</p>
+<p> <img src="/images/3_change.png" alt="修改"> </p>
+</li>
+</ol>
+<p>tips: 此解决方法由顾匡愚提供。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>orange&#39;s 一个操作系统的实现中关于FreeDOS添加文本文件的问题</title>
     <url>/2019/12/02/2/</url>
     <content><![CDATA[<h3 id="Hello-Question"><a href="#Hello-Question" class="headerlink" title="Hello Question"></a>Hello Question</h3><ol>
