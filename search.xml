@@ -1,30 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>orange&#39;s操作系统中5/6中报错处理</title>
-    <url>/2020/01/03/3/</url>
-    <content><![CDATA[<h3 id="Hello-Question"><a href="#Hello-Question" class="headerlink" title="Hello Question"></a>Hello Question</h3><ol>
-<li><p>如下图，但是报错不局限于下图:</p>
-<p> <img src="/images/3_error.png" alt="报错"> </p>
-<a id="more"></a>
-
-</li>
-</ol>
-<h3 id="Hello-Answer"><a href="#Hello-Answer" class="headerlink" title="Hello Answer"></a>Hello Answer</h3><ol>
-<li><p>修改/lib/klaba.asm中的disp_str。如下图，添加一点点即可</p>
-<p> <img src="/images/3_change.png" alt="修改"> </p>
-</li>
-</ol>
-<p>tips: 此解决方法由顾匡愚提供。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>orange&#39;s 一个操作系统的实现中关于FreeDOS添加文本文件的问题</title>
     <url>/2019/12/02/2/</url>
     <content><![CDATA[<h3 id="Hello-Question"><a href="#Hello-Question" class="headerlink" title="Hello Question"></a>Hello Question</h3><ol>
 <li><p>最近做操作系统课程实验发现教材上竟没有提供FreeDos如何编辑文件的问题。从网上找到的一般都是使用Edit命令，不过都是下图:</p>
 <p> <img src="/images/edit_error.png" alt="edit_error"></p>
-<a id="more"></a>
+<span id="more"></span>
 
 </li>
 </ol>
@@ -32,7 +14,7 @@
 <li><p>FreeDos-Img的压缩包提供了三个.img文件,我们之前用的a.img,其中并没有Edit命令，我们要到c.img。<a href="/files/c.img">c.img在这里</a>。</p>
 </li>
 <li><p>将bochsrc改写启动盘为c.img。将其中的硬盘一段改写为(pm.img是自己创建好的要写入数据的虚拟软盘)</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># what disk images will be used</span></pre></td></tr><tr><td class="code"><pre><span class="line">floppyb: 1_44&#x3D;pm.img, status&#x3D;inserted</span></pre></td></tr><tr><td class="code"><pre><span class="line">ata0-master: type&#x3D;disk, path&#x3D;c.img, cylinders&#x3D;306, heads&#x3D;4, spt&#x3D;17</span></pre></td></tr><tr><td class="code"><pre><span class="line"># choose the boot disk.</span></pre></td></tr><tr><td class="code"><pre><span class="line">boot: c</span></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># what disk images will be used</span><br><span class="line">floppyb: 1_44=pm.img, status=inserted</span><br><span class="line">ata0-master: type=disk, path=c.img, cylinders=306, heads=4, spt=17</span><br><span class="line"># choose the boot disk.</span><br><span class="line">boot: c</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>启动之后就可以进入到C盘，我们进入B盘，然后输入edit可以进入到Edit界面，然后按alt+F可以进入文件界面，然后选择dos。</p>
 <p> <img src="/images/dos.png" alt="dos">    </p>
@@ -49,11 +31,29 @@
 ]]></content>
   </entry>
   <entry>
+    <title>orange&#39;s操作系统中5/6中报错处理</title>
+    <url>/2020/01/03/3/</url>
+    <content><![CDATA[<h3 id="Hello-Question"><a href="#Hello-Question" class="headerlink" title="Hello Question"></a>Hello Question</h3><ol>
+<li><p>如下图，但是报错不局限于下图:</p>
+<p> <img src="/images/3_error.png" alt="报错"> </p>
+<span id="more"></span>
+
+</li>
+</ol>
+<h3 id="Hello-Answer"><a href="#Hello-Answer" class="headerlink" title="Hello Answer"></a>Hello Answer</h3><ol>
+<li><p>修改/lib/klaba.asm中的disp_str。如下图，添加一点点即可</p>
+<p> <img src="/images/3_change.png" alt="修改"> </p>
+</li>
+</ol>
+<p>tips: 此解决方法由顾匡愚提供。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>这个博客的搭建过程</title>
     <url>/2019/11/29/1/</url>
     <content><![CDATA[<h3 id="Hello，Github-Page！"><a href="#Hello，Github-Page！" class="headerlink" title="Hello，Github Page！"></a>Hello，Github Page！</h3><ol>
 <li><p>去github创建一个仓库，仓库的名字最好是username.github.io。我已经创建过了自然是已存在</p>
-<a id="more"></a>
+<span id="more"></span>
 <p><img src="/images/new_repo.png" alt="newRepo"></p>
 </li>
 <li><p>在仓库的的setting的最下面找到下图的这个界面，填写一些信息，就可以看到链接给出来了。随便选择一个主题，然后就可以在浏览器中访问了。</p>
@@ -61,30 +61,30 @@
 </li>
 </ol>
 <h3 id="Hello，Hexo！"><a href="#Hello，Hexo！" class="headerlink" title="Hello，Hexo！"></a>Hello，Hexo！</h3><ol>
-<li><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。下面都是在Hexo的官网看到的，介绍的挺详细的。<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></p>
+<li><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。下面都是在Hexo的官网看到的，介绍的挺详细的。<a href="https://hexo.io/">Hexo</a></p>
 </li>
 <li><p>我选择的是Ubuntu 18.04平台搭建的博客。Hexo需要下面两个工具:</p>
-<p> Git 和 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Git 在 Ubuntu 上 apt 安装就可以</span></pre></td></tr><tr><td class="code"><pre><span class="line">Node.js 有多种安装方式，因为种种原因出错，结果我是用源码编译安装的</span></pre></td></tr><tr><td class="code"><pre><span class="line">安装完之后在终端里输入 git 和 npm 提示存在命令就可以了。</span></pre></td></tr></table></figure>
+<p> Git 和 <a href="https://nodejs.org/en/">Node.js</a> </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Git 在 Ubuntu 上 apt 安装就可以</span><br><span class="line">Node.js 有多种安装方式，因为种种原因出错，结果我是用源码编译安装的</span><br><span class="line">安装完之后在终端里输入 git 和 npm 提示存在命令就可以了。</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用npm命令安装Hexo</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>将hexo命令加入到环境变量中，之后输入hexo应该提示命令存在了</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &#39;PATH&#x3D;&quot;$PATH:.&#x2F;node_modules&#x2F;.bin&quot;&#39; &gt;&gt; ~&#x2F;.profile</span></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &#x27;PATH=&quot;$PATH:./node_modules/.bin&quot;&#x27; &gt;&gt; ~/.profile</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>初始化hexo，之后的操作都是在<strong>创建的文件夹</strong>下面工作的了</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span></pre></td></tr><tr><td class="code"><pre><span class="line">cd &lt;folder&gt;</span></pre></td></tr><tr><td class="code"><pre><span class="line">npm install</span></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br><span class="line">cd &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>新建一个文章</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new post &quot;文章名&quot;</span></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new post &quot;文章名&quot;</span><br></pre></td></tr></table></figure>
 <p>之后便可以在source/_post文件夹下看到你创建的xxx.md文件了。在里面进行Markdown语法的编写。</p>
 </li>
 <li><p>_config.yml是配置文件，在里面可以配置很多重要的信息，这是很麻烦的一部分。我这里仅介绍我修改的一部分。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Site  设置网站的基本信息的地方</span></pre></td></tr><tr><td class="code"><pre><span class="line">title: jin的博客</span></pre></td></tr><tr><td class="code"><pre><span class="line">subtitle: &#39;you find me,But I dont konw you!&#39;</span></pre></td></tr><tr><td class="code"><pre><span class="line">description: &#39;这次我们可以一起学习&#39;</span></pre></td></tr><tr><td class="code"><pre><span class="line">keywords:</span></pre></td></tr><tr><td class="code"><pre><span class="line">author: 刘进</span></pre></td></tr><tr><td class="code"><pre><span class="line">language: zh-CN</span></pre></td></tr><tr><td class="code"><pre><span class="line">timezone: &#39;&#39;</span></pre></td></tr><tr><td class="code"><pre><span class="line">...</span></pre></td></tr><tr><td class="code"><pre><span class="line">## Themes: https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;这是配置主题的地方，可以在官网找到很多的主题。我用的是比较经典的next主题。</span></pre></td></tr><tr><td class="code"><pre><span class="line">theme: next</span></pre></td></tr><tr><td class="code"><pre><span class="line">...</span></pre></td></tr><tr><td class="code"><pre><span class="line"># 这是配置远程Github库的地方。我们用Hexo生成的静态界面是要推送的Github上的。</span></pre></td></tr><tr><td class="code"><pre><span class="line">deploy:</span></pre></td></tr><tr><td class="code"><pre><span class="line">type: git</span></pre></td></tr><tr><td class="code"><pre><span class="line">repository: git@github.com:jinexplorer&#x2F;jinexplorer.github.io.git</span></pre></td></tr><tr><td class="code"><pre><span class="line">branch: master</span></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Site  设置网站的基本信息的地方</span><br><span class="line">title: jin的博客</span><br><span class="line">subtitle: &#x27;you find me,But I dont konw you!&#x27;</span><br><span class="line">description: &#x27;这次我们可以一起学习&#x27;</span><br><span class="line">keywords:</span><br><span class="line">author: 刘进</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: &#x27;&#x27;</span><br><span class="line">...</span><br><span class="line">## Themes: https://hexo.io/themes/这是配置主题的地方，可以在官网找到很多的主题。我用的是比较经典的next主题。</span><br><span class="line">theme: next</span><br><span class="line">...</span><br><span class="line"># 这是配置远程Github库的地方。我们用Hexo生成的静态界面是要推送的Github上的。</span><br><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repository: git@github.com:jinexplorer/jinexplorer.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>之后我们便可以写的文章推送到Github上，就可以在网址中看到，我们写的文章。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#生成静态界面</span></pre></td></tr><tr><td class="code"><pre><span class="line">hexo g</span></pre></td></tr><tr><td class="code"><pre><span class="line">#推送到Github</span></pre></td></tr><tr><td class="code"><pre><span class="line">hexo d</span></pre></td></tr><tr><td class="code"><pre><span class="line">#另外还可以使用下列命令在本地创建服务器查看</span></pre></td></tr><tr><td class="code"><pre><span class="line">hexo s</span></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#生成静态界面</span><br><span class="line">hexo g</span><br><span class="line">#推送到Github</span><br><span class="line">hexo d</span><br><span class="line">#另外还可以使用下列命令在本地创建服务器查看</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 ]]></content>

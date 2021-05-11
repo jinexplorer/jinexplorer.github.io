@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.0.0">
+<meta name="generator" content="Hexo 5.4.0">
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
 <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -53,19 +53,21 @@
   <meta name="description" content="Hello Question 最近做操作系统课程实验发现教材上竟没有提供FreeDos如何编辑文件的问题。从网上找到的一般都是使用Edit命令，不过都是下图:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="orange&#39;s 一个操作系统的实现中关于FreeDOS添加文本文件的问题">
-<meta property="og:url" content="http:&#x2F;&#x2F;jinexplorer.github.io&#x2F;2019&#x2F;12&#x2F;02&#x2F;2&#x2F;index.html">
+<meta property="og:url" content="http://jinexplorer.github.io/2019/12/02/2/index.html">
 <meta property="og:site_name" content="jin的博客">
 <meta property="og:description" content="Hello Question 最近做操作系统课程实验发现教材上竟没有提供FreeDos如何编辑文件的问题。从网上找到的一般都是使用Edit命令，不过都是下图:">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;jinexplorer.github.io&#x2F;images&#x2F;edit_error.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;jinexplorer.github.io&#x2F;images&#x2F;dos.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;jinexplorer.github.io&#x2F;images&#x2F;echo.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;jinexplorer.github.io&#x2F;images&#x2F;root.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;jinexplorer.github.io&#x2F;images&#x2F;fat.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;jinexplorer.github.io&#x2F;images&#x2F;data.png">
-<meta property="og:updated_time" content="2019-12-02T11:47:41.797Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://jinexplorer.github.io/images/edit_error.png">
+<meta property="og:image" content="http://jinexplorer.github.io/images/dos.png">
+<meta property="og:image" content="http://jinexplorer.github.io/images/echo.png">
+<meta property="og:image" content="http://jinexplorer.github.io/images/root.png">
+<meta property="og:image" content="http://jinexplorer.github.io/images/fat.png">
+<meta property="og:image" content="http://jinexplorer.github.io/images/data.png">
+<meta property="article:published_time" content="2019-12-02T11:07:22.000Z">
+<meta property="article:modified_time" content="2019-12-02T11:47:41.797Z">
+<meta property="article:author" content="进">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;jinexplorer.github.io&#x2F;images&#x2F;edit_error.png">
+<meta name="twitter:image" content="http://jinexplorer.github.io/images/edit_error.png">
 
 <link rel="canonical" href="http://jinexplorer.github.io/2019/12/02/2/">
 
@@ -262,7 +264,7 @@
         <h3 id="Hello-Question"><a href="#Hello-Question" class="headerlink" title="Hello Question"></a>Hello Question</h3><ol>
 <li><p>最近做操作系统课程实验发现教材上竟没有提供FreeDos如何编辑文件的问题。从网上找到的一般都是使用Edit命令，不过都是下图:</p>
 <p> <img src="/images/edit_error.png" alt="edit_error"></p>
-<a id="more"></a>
+<span id="more"></span>
 
 </li>
 </ol>
@@ -270,7 +272,7 @@
 <li><p>FreeDos-Img的压缩包提供了三个.img文件,我们之前用的a.img,其中并没有Edit命令，我们要到c.img。<a href="/files/c.img">c.img在这里</a>。</p>
 </li>
 <li><p>将bochsrc改写启动盘为c.img。将其中的硬盘一段改写为(pm.img是自己创建好的要写入数据的虚拟软盘)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"># what disk images will be used</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">floppyb: 1_44&#x3D;pm.img, status&#x3D;inserted</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">ata0-master: type&#x3D;disk, path&#x3D;c.img, cylinders&#x3D;306, heads&#x3D;4, spt&#x3D;17</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"># choose the boot disk.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">boot: c</span></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># what disk images will be used</span><br><span class="line">floppyb: 1_44=pm.img, status=inserted</span><br><span class="line">ata0-master: type=disk, path=c.img, cylinders=306, heads=4, spt=17</span><br><span class="line"># choose the boot disk.</span><br><span class="line">boot: c</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>启动之后就可以进入到C盘，我们进入B盘，然后输入edit可以进入到Edit界面，然后按alt+F可以进入文件界面，然后选择dos。</p>
 <p> <img src="/images/dos.png" alt="dos">    </p>
@@ -431,7 +433,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">进</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
@@ -475,9 +477,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 
@@ -486,7 +496,9 @@
 
 
 
-  <script src="/js/local-search.js"></script>
+  
+<script src="/js/local-search.js"></script>
+
 
 
 
